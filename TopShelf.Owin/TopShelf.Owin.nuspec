@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Topshelf.Owin</id>
+    <version>0.1.0.0</version>
+    <title>Topshelf.WebApi</title>
+    <authors>dennisroche</authors>
+    <projectUrl>https://github.com/dennisroche/Topshelf.Owin/</projectUrl>
+    <description>Topshelf.Owin provides extensions to configure a self-hosted OWIN instance along with your service class.</description>
+    <tags>Topshelf Owin</tags>
+    <dependencies>
+      <dependency id="TopShelf" version="3.1.4" />
+      <dependency id="Microsoft.Owin.Hosting" version="3.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\**\Topshelf.Owin.dll" target="lib" />
+  </files>
+</package>
