@@ -19,6 +19,7 @@ namespace TopShelf.Owin
         public int Port { get; set; }
 
         protected IDependencyResolver DependencyResolver;
+        protected Action<HttpConfiguration> HttpConfigurator;
 
         public WebAppConfigurator()
         {
@@ -27,6 +28,11 @@ namespace TopShelf.Owin
             Port = 8080;
 
             Log = HostLogger.Get(typeof(WebAppConfigurator));
+            DependencyResolver = null;
+            HttpConfigurator = httpConfiguration =>
+            {
+                httpConfiguration.MapHttpAttributeRoutes();
+            };
         }
 
         public WebAppConfigurator UseDependencyResolver(IDependencyResolver dependencyResolver)
@@ -35,23 +41,29 @@ namespace TopShelf.Owin
             return this;
         }
 
+        public WebAppConfigurator ConfigureHttp(Action<HttpConfiguration> httpConfigurator)
+        {
+            HttpConfigurator = httpConfigurator;
+            return this;
+        }
+
         public void Start()
         {
             var baseAddress = new UriBuilder(Scheme, Domain, Port);
             Log.InfoFormat("[Topshelf.Owin] Starting OWIN self-host, listening on: {0}", baseAddress.Uri);
-
+            
             WebApplication = WebApp.Start(baseAddress.ToString(), Startup);
         }
 
-        private void Startup(IAppBuilder application)
+        private void Startup(IAppBuilder appBuilder)
         {
             var httpConfiguration = new HttpConfiguration();
-            httpConfiguration.MapHttpAttributeRoutes();
+            HttpConfigurator(httpConfiguration);
 
             if (DependencyResolver != null)
                 httpConfiguration.DependencyResolver = DependencyResolver;
 
-            application.UseWebApi(httpConfiguration);
+            appBuilder.UseWebApi(httpConfiguration);
         }
 
         public void Stop()
