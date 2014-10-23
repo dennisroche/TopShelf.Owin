@@ -1,7 +1,9 @@
 Topshelf.Owin
 =============
 
-Extend TopShelf to be a self-hosted API using OWIN. 
+Extend TopShelf to be a self-hosted API using [OWIN](http://owin.org/) (Open Web Interface for .NET) 
+
+**NB:** Owin requires .NET 4.5 or later. 
 
 How to use
 =============
@@ -31,10 +33,10 @@ namespace YourService
                     s.WhenStarted((service, control) => service.Start());
                     s.WhenStopped((service, control) => service.Stop());
 
-                    s.OwinEndpoint(configurator =>
+                    s.OwinEndpoint(app =>
                     {
-                        configurator.Domain = "localhost";
-                        configurator.Port = 8080;
+                        app.Domain = "localhost";
+                        app.Port = 8080;
                     });
                 });
 
@@ -45,52 +47,29 @@ namespace YourService
 }
 ```
 
-If you want to use with AutoFac, then also add [AutoFac.WebApi](https://www.nuget.org/packages/Autofac.WebApi/) and [TopShelf.AutoFac](https://www.nuget.org/packages/Topshelf.Autofac/) packages.
+If you want to use with AutoFac, then also add [AutoFac.WebApi](https://www.nuget.org/packages/Autofac.WebApi/) and [TopShelf.AutoFac](https://www.nuget.org/packages/Topshelf.Autofac/) packages and then set the `DependencyResolver`.
 
 ```c#
-using Autofac;
-using Autofac.Integration.WebApi;
-using Topshelf;
-using Topshelf.Autofac;
-using TopShelf.Owin;
-
-namespace YourService
+s.OwinEndpoint(app =>
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            var builder = new ContainerBuilder();
-
-            // Service
-            builder.RegisterType<YourService>().SingleInstance();
-
-            var container = builder.Build();
-
-            HostFactory.Run(c =>
-            {
-                c.RunAsNetworkService();
-                
-                c.UseAutofacContainer(container);
-                c.Service<YourService>(s =>
-                {
-                    s.ConstructUsingAutofacContainer();
-                    s.WhenStarted((service, control) => service.Start());
-                    s.WhenStopped((service, control) => service.Stop());
-
-                    s.OwinEndpoint(configurator =>
-                    {
-                        configurator.Domain = "localhost";
-                        configurator.Port = 8080;
-
-                        configurator.UseDependencyResolver(new AutofacWebApiDependencyResolver(container));
-                    });
-                });
-
-            });
-        }
-
-    }
-    
+    app.UseDependencyResolver(new AutofacWebApiDependencyResolver(container));
 }
+```
+
+By default, it will map routes using attributes on the actions. If you want to change the `HttpCongfiguration` to change routes or change the [JSON serializer](https://www.nuget.org/packages/Newtonsoft.Json/), you can:
+
+```c#
+s.OwinEndpoint(app =>
+{
+    app.ConfigureHttp(httpConfiguration =>
+    {
+        httpConfiguration.MapHttpAttributeRoutes();
+        httpConfiguration.Formatters.Clear();
+        httpConfiguration.Formatters.Add(new JsonMediaTypeFormatter());
+
+        var jsonSettings = httpConfiguration.Formatters.JsonFormatter.SerializerSettings;
+        jsonSettings.Formatting = Formatting.Indented;
+        jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+    });
+});
 ```

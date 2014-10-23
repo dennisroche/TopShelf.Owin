@@ -29,10 +29,7 @@ namespace TopShelf.Owin
 
             Log = HostLogger.Get(typeof(WebAppConfigurator));
             DependencyResolver = null;
-            HttpConfigurator = httpConfiguration =>
-            {
-                httpConfiguration.MapHttpAttributeRoutes();
-            };
+            HttpConfigurator = httpConfiguration => httpConfiguration.MapHttpAttributeRoutes();
         }
 
         public WebAppConfigurator UseDependencyResolver(IDependencyResolver dependencyResolver)
