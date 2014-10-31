@@ -46,10 +46,13 @@ namespace TopShelf.Owin
 
         public void Start()
         {
-            var baseAddress = new UriBuilder(Scheme, Domain, Port);
-            Log.InfoFormat("[Topshelf.Owin] Starting OWIN self-host, listening on: {0}", baseAddress.Uri);
+            var options = new StartOptions();
+            options.Urls.Add(new UriBuilder(Scheme, Domain, Port).ToString());
+            options.Urls.Add(new UriBuilder(Scheme, Environment.MachineName, Port).ToString());
+
+            Log.InfoFormat("[Topshelf.Owin] Starting OWIN self-host, listening on: {0}", string.Join(",", options.Urls));
             
-            WebApplication = WebApp.Start(baseAddress.ToString(), Startup);
+            WebApplication = WebApp.Start(options, Startup);
         }
 
         private void Startup(IAppBuilder appBuilder)
