@@ -73,3 +73,12 @@ s.OwinEndpoint(app =>
     });
 });
 ```
+
+If you want to bind any OWIN app/middleware other than WebAPI, you can do so by accessing the `IAppBuilder` instance directly, e.g.:
+
+```c#
+s.OwinEndpoint(app =>
+{
+    app.ConfigureAppBuilder(appBuilder => appBuilder.UseNancy());
+});
+```
