@@ -21,6 +21,7 @@ namespace TopShelf.Owin
         protected IDependencyResolver DependencyResolver;
         protected Action<HttpConfiguration> HttpConfigurator;
         protected Action<StartOptions> StartOptions;
+        protected Action<IAppBuilder> AppBuilderConfigurator;
 
         public WebAppConfigurator()
         {
@@ -33,6 +34,7 @@ namespace TopShelf.Owin
 
             HttpConfigurator = httpConfiguration => httpConfiguration.MapHttpAttributeRoutes();
             StartOptions = options => options.Urls.Add(new UriBuilder(Scheme, Domain, Port).ToString());
+            AppBuilderConfigurator = appBuilder => { };
         }
 
         public WebAppConfigurator UseDependencyResolver(IDependencyResolver dependencyResolver)
@@ -53,6 +55,12 @@ namespace TopShelf.Owin
             return this;
         }
 
+        public WebAppConfigurator ConfigureAppBuilder(Action<IAppBuilder> appBuilderConfigurator) 
+        {
+            AppBuilderConfigurator = appBuilderConfigurator;
+            return this;
+        }
+
         public void Start()
         {
             var options = new StartOptions();
@@ -65,6 +73,8 @@ namespace TopShelf.Owin
 
         private void Startup(IAppBuilder appBuilder)
         {
+            AppBuilderConfigurator(appBuilder);
+
             var httpConfiguration = new HttpConfiguration();
             HttpConfigurator(httpConfiguration);
 
