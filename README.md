@@ -1,9 +1,9 @@
-Topshelf.Owin
+Topshelf.Owin [![Build status](https://ci.appveyor.com/api/projects/status/fx8d5f2apa553gge?svg=true)](https://ci.appveyor.com/project/dennisroche/topshelf-owin)
 =============
 
 Extend TopShelf to be a self-hosted API using [OWIN](http://owin.org/) (Open Web Interface for .NET) 
 
-**NB:** Owin requires .NET 4.5 or later. 
+**NB:** Owin requires .NET 4.5 or later.
 
 How to use
 =============
