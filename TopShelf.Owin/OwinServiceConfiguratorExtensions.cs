@@ -13,7 +13,7 @@ namespace TopShelf.Owin
                 appConfigurator(config);
 
             configurator.BeforeStartingService(t => config.Start());
-            configurator.BeforeStoppingService(t => config.Stop());
+            configurator.AfterStoppingService(t => config.Stop());
 
             return configurator;
         }
