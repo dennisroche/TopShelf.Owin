@@ -12,6 +12,7 @@
         <dependencies>
             <dependency id="TopShelf" version="3.1.4" />
             <dependency id="Microsoft.Owin.Hosting" version="3.0.0" />
+            <dependency id="Microsoft.Owin.Host.HttpListener" version="3.0.0" />
         </dependencies>
     </metadata>
     <files>
