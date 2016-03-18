@@ -30,6 +30,7 @@ namespace YourService
          
                 c.Service<YourService>(s =>
                 {
+                    s.CreateUsing(() => new YourService()); // or a factory, IOC container, etc...
                     s.WhenStarted((service, control) => service.Start());
                     s.WhenStopped((service, control) => service.Stop());
 
