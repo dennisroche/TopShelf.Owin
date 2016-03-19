@@ -10,7 +10,7 @@ How to use
 
 Install the [Nuget](https://www.nuget.org/packages/Topshelf.Owin) package.
 
-	Install-Package Topshelf.Owin
+    Install-Package Topshelf.Owin
 
 Then modify your TopShelf service.
 
@@ -30,13 +30,13 @@ namespace YourService
          
                 c.Service<YourService>(s =>
                 {
-                    s.CreateUsing(() => new YourService()); // or a factory, IOC container, etc...
+                    s.ConstructUsing(() => new YourService());
                     s.WhenStarted((service, control) => service.Start());
                     s.WhenStopped((service, control) => service.Stop());
 
                     s.OwinEndpoint(app =>
                     {
-                        app.Domain = "localhost";
+                        app.Domain = "yourservice.localtest.me";
                         app.Port = 8080;
                     });
                 });
