@@ -1,4 +1,4 @@
-Topshelf.Owin [![Build status](https://ci.appveyor.com/api/projects/status/fx8d5f2apa553gge?svg=true)](https://ci.appveyor.com/project/dennisroche/topshelf-owin) [![NuGet Version](http://img.shields.io/nuget/v/Topshelf.Owin.svg?style=flat)](https://www.nuget.org/packages/Topshelf.Owin/)
+Topshelf.Owin [![Build status](https://ci.appveyor.com/api/projects/status/fx8d5f2apa553gge/branch/master?svg=true)](https://ci.appveyor.com/project/dennisroche/topshelf-owin/branch/master) [![NuGet Version](http://img.shields.io/nuget/v/Topshelf.Owin.svg?style=flat)](https://www.nuget.org/packages/Topshelf.Owin/)
 =============
 
 Extend TopShelf to be a self-hosted API using [OWIN](http://owin.org/) (Open Web Interface for .NET) 
