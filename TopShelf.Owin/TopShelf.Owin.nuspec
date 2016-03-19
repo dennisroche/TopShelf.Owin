@@ -10,9 +10,15 @@
         <description>Topshelf.Owin provides extensions to configure a self-hosted OWIN instance along with your service class.</description>
         <tags>Topshelf Owin</tags>
         <dependencies>
-            <dependency id="TopShelf" version="3.1.4" />
-            <dependency id="Microsoft.Owin.Hosting" version="3.0.0" />
-            <dependency id="Microsoft.Owin.Host.HttpListener" version="3.0.0" />
+          <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.2" />
+          <dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.2" />
+          <dependency id="Microsoft.AspNet.WebApi.Owin" version="5.2.2" />
+          <dependency id="Microsoft.Owin" version="3.0.0" />
+          <dependency id="Microsoft.Owin.Host.HttpListener" version="3.0.0" />
+          <dependency id="Microsoft.Owin.Hosting" version="3.0.0" />
+          <dependency id="Newtonsoft.Json" version="6.0.4" />
+          <dependency id="Owin" version="1.0" />
+          <dependency id="Topshelf" version="3.1.4" />
         </dependencies>
     </metadata>
     <files>
