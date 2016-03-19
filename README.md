@@ -36,7 +36,7 @@ namespace YourService
 
                     s.OwinEndpoint(app =>
                     {
-                        app.Domain = "yourservice.localtest.me";
+                        app.Domain = "localhost";
                         app.Port = 8080;
                     });
                 });
