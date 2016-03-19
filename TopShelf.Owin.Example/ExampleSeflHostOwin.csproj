@@ -77,8 +77,8 @@
       <HintPath>$(SolutionDir)packages\Topshelf.3.3.1\lib\net40-full\Topshelf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TopShelf.Owin, Version=1.3.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)packages\Topshelf.Owin.1.3.17.0\lib\net45\TopShelf.Owin.dll</HintPath>
+    <Reference Include="TopShelf.Owin, Version=1.3.25.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)packages\Topshelf.Owin.1.3.25.0\lib\net45\TopShelf.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
