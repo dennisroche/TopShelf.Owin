@@ -1,7 +1,6 @@
 ﻿using Microsoft.Owin.Hosting;
 using Owin;
 using System;
-using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 using Topshelf.Logging;
