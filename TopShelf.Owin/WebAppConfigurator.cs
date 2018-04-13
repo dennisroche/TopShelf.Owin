@@ -5,7 +5,7 @@ using System.Web.Http;
 using System.Web.Http.Dependencies;
 using Topshelf.Logging;
 
-namespace TopShelf.Owin
+namespace Topshelf.Owin
 {
     public class WebAppConfigurator
     {

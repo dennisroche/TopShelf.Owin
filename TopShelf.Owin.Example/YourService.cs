@@ -1,4 +1,4 @@
-﻿using TopShelf.Owin;
+﻿using Topshelf.Owin;
 
 namespace ExampleSeflHostOwin
 {

@@ -1,4 +1,4 @@
-﻿namespace TopShelf.Owin
+﻿namespace Topshelf.Owin
 {
     public interface IOwinService
     {

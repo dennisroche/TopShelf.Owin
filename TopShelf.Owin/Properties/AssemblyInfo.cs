@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyTitle("TopShelf.Owin")]
+[assembly: AssemblyTitle("Topshelf.Owin")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyProduct("TopShelf.Owin")]
+[assembly: AssemblyProduct("Topshelf.Owin")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 
 // Version information for an assembly consists of the following four values:
