@@ -1,7 +1,7 @@
 ﻿using System;
 using Topshelf.ServiceConfigurators;
 
-namespace TopShelf.Owin
+namespace Topshelf.Owin
 {
     public static class OwinServiceConfiguratorExtensions
     {

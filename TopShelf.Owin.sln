@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopShelf.Owin", "TopShelf.Owin\TopShelf.Owin.csproj", "{2CA7C536-1974-4237-A5C2-079E59BFB432}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Topshelf.Owin", "TopShelf.Owin\Topshelf.Owin.csproj", "{2CA7C536-1974-4237-A5C2-079E59BFB432}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleSeflHostOwin", "TopShelf.Owin.Example\ExampleSeflHostOwin.csproj", "{5FF9E925-7B31-4843-98DD-99E37E2CA34A}"
 EndProject
@@ -29,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9A82618-84D4-499E-B279-929AF0AC8424}
 	EndGlobalSection
 EndGlobal

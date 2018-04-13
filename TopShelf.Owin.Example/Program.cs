@@ -1,5 +1,5 @@
 ﻿using Topshelf;
-using TopShelf.Owin;
+using Topshelf.Owin;
 
 namespace ExampleSeflHostOwin
 {

@@ -90,9 +90,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TopShelf.Owin\TopShelf.Owin.csproj">
+    <ProjectReference Include="..\TopShelf.Owin\Topshelf.Owin.csproj">
       <Project>{2ca7c536-1974-4237-a5c2-079e59bfb432}</Project>
-      <Name>TopShelf.Owin</Name>
+      <Name>Topshelf.Owin</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
