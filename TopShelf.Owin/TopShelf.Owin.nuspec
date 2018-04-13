@@ -18,7 +18,7 @@
         <dependency id="Microsoft.Owin.Hosting" version="3.0.1" />
         <dependency id="Newtonsoft.Json" version="8.0.3" />
         <dependency id="Owin" version="1.0" />
-        <dependency id="Topshelf" version="3.3.1" />
+        <dependency id="Topshelf" version="4.0.1" />
       </dependencies>
     </metadata>
     <files>
