@@ -38,6 +38,7 @@ namespace YourService
                     {
                         app.Domain = "localhost";
                         app.Port = 8080;
+                        // Using Autofac? Add UseDependencyResolver()
                     });
                 });
 
